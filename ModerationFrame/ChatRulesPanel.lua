@@ -9,7 +9,8 @@ function EzModChatRulesPanel_Update()
 
     local previous = nil
 
-    for i = 1, #ezMod.rules.list do
+    local i = 1
+    while i <= #ezMod.rules.list do
         local ruleFrame = children and children[i] or nil
         if ruleFrame == nil then
             ruleFrame = CreateFrame("Frame", "EzModChatRule"..tostring(i), content, "EzModChatRuleTemplate")
@@ -41,5 +42,14 @@ function EzModChatRulesPanel_Update()
         ruleFrame:SetHeight(height)
 
         previous = ruleFrame
+        i = i + 1
+    end
+
+    -- in case rule got deleted, ig
+    if children then
+        while i <= #children do
+            children[i]:Hide()
+            i = i + 1
+        end
     end
 end

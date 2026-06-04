@@ -64,6 +64,7 @@
         </Frames>
         <Scripts>
             <OnLoad function="EzModChatRulesPanel_OnLoad"/>
+            <OnShow function="EzModChatRulesPanel_Update"/>
         </Scripts>
     </Frame>
 </Ui>

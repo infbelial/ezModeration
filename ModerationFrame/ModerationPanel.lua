@@ -43,6 +43,7 @@ function EzModModerationPanel_NewSearch(name)
     EzModChatHistory_Update()
     EzModMuteHistory_ResetSelection()
     EzModMuteHistory_Update()
+    EzModModerationFrame_SetTab(EzModModerationFrame, 1)
 end
 
 
