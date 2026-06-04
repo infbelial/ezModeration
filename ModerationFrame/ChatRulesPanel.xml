@@ -1,0 +1,69 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+
+    <Script file="ChatRulesPanel.lua"/>
+
+    <Frame name="EzModChatRuleTemplate" virtual="true">
+        <Size x="676" y="50"/>
+        <Layers>
+            <Layer level="OVERLAY">
+                <FontString name="$parentName" parentKey="name" inherits="GameFontNormal" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="5" y="-5"/>
+                    </Anchors>
+                </FontString>
+                <FontString name="$parentDetails" parentKey="details" inherits="GameFontHighlight" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeTo="$parentName" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                    </Anchors>
+                </FontString>
+                <FontString name="$parentBaseTime" parentKey="baseTime" inherits="GameFontHighlight" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeTo="$parentDetails" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                    </Anchors>
+                </FontString>
+                <FontString name="$parentWarning" parentKey="warning" inherits="GameFontHighlight" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeTo="$parentBaseTime" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        	<Layer level="BACKGROUND">
+               	<Texture parentKey="background" file="Interface\AddOns\ezModeration\Textures\ListButtons">
+                   	<TexCoords left="0.00390625" right="0.8203125" top="0.00390625" bottom="0.18359375"/>
+				</Texture>
+            </Layer>
+        </Layers>
+    </Frame>
+
+    <Frame name="EzModChatRulesPanel" parent="EzModModerationFrame" setAllPoints="true">
+        <Frames>
+            <Frame name="$parentInset" useParentLevel="true" inherits="EzWoWInsetFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="4" y="-26"/>
+                    <Anchor point="BOTTOMRIGHT" x="-4" y="8"/>
+                </Anchors>
+                <Frames>
+                    <ScrollFrame name="$parentScrollFrame" inherits="UIPanelScrollFrameTemplate">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="4" y="-4"/>
+                            <Anchor point="BOTTOMRIGHT" x="-26" y="4"/>
+                        </Anchors>
+                        <ScrollChild>
+                            <Frame name="EzModChatRulesContent">
+                                <Size x="100" y="200"/>
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="4" y="-4"/>
+                                    <Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
+                                </Anchors>
+                            </Frame>
+                        </ScrollChild>
+                    </ScrollFrame>
+                </Frames>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad function="EzModChatRulesPanel_OnLoad"/>
+        </Scripts>
+    </Frame>
+</Ui>

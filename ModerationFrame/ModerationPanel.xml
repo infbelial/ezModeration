@@ -1,0 +1,329 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+
+	<Script file="ModerationPanel.lua"/>
+
+	<Button name="EzModMuteHistoryEntryTemplate" virtual="true">
+		<Size x="676" y="40"/>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentHeader" parentKey="header" font="Fonts\FRIZQT__.TTF" justifyH="LEFT">
+					<Color r="1.0" g="0.82" b="0"/>
+					<FontHeight val="12"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="5" y="-5"/>
+					</Anchors>
+				</FontString>
+                <FontString name="$parentReason" parentKey="reason" inherits="GameFontHighlight" justifyH="LEFT">
+                    <Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentHeader" relativePoint="BOTTOMLEFT" y="-5"/>
+					</Anchors>
+                </FontString>
+			</Layer>
+			<Layer level="BACKGROUND">
+               	<Texture parentKey="background" file="Interface\AddOns\ezModeration\Textures\ListButtons">
+                   	<TexCoords left="0.00390625" right="0.8203125" top="0.00390625" bottom="0.18359375"/>
+				</Texture>
+            </Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentHighlight" parentKey="highlight" hidden="true" setAllPoints="true" enableMouse="false">
+				<Layers>
+					<Layer level="OVERLAY">
+						<Texture name="$parentTopLeft" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="-1" y="2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0.06640625" right="0" top="0.4375" bottom="0.65625"/>
+						</Texture>
+						<Texture name="$parentBottomLeft" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT">
+									<Offset>
+										<AbsDimension x="-1" y="-2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0.06640625" right="0" top="0.65625" bottom="0.4375"/>
+						</Texture>		
+						<Texture name="$parentTopRight" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="1" y="2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0" right="0.06640625" top="0.4375" bottom="0.65625"/>
+						</Texture>
+						<Texture name="$parentBottomRight" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Size>
+								<AbsDimension x="16" y="16"/>
+							</Size>
+							<Anchors>
+								<Anchor point="BOTTOMRIGHT">
+									<Offset>
+										<AbsDimension x="1" y="-2"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0" right="0.06640625" top="0.65625" bottom="0.4375"/>
+						</Texture>			
+						<Texture name="$parentTop" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopLeft" relativePoint="TOPRIGHT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentTopRight" relativePoint="BOTTOMLEFT"/>
+							</Anchors>
+							<TexCoords left="0" right="0.015" top="0.4375" bottom="0.65625"/>
+						</Texture>
+						<Texture name="$parentBottom" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentBottomLeft" relativePoint="TOPRIGHT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottomRight" relativePoint="BOTTOMLEFT"/>
+							</Anchors>
+							<TexCoords left="0" right="0.015" top="0.65625" bottom="0.4375"/>
+						</Texture>			
+						<Texture name="$parentLeft" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopLeft" relativePoint="BOTTOMLEFT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottomLeft" relativePoint="TOPRIGHT"/>
+							</Anchors>
+							<TexCoords left="0.06640625" right="0" top="0.65625" bottom="0.6"/>
+						</Texture>
+						<Texture name="$parentRight" file="Interface\PaperDollInfoFrame\UI-Character-ReputationBar-Highlight" alphaMode="ADD">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopRight" relativePoint="BOTTOMLEFT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottomRight" relativePoint="TOPRIGHT"/>
+							</Anchors>
+							<TexCoords left="0" right="0.06640625" top="0.65625" bottom="0.6"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnEnter>self.highlight:Show()</OnEnter>
+			<OnLeave>if not self.selected then self.highlight:Hide() end</OnLeave>
+			<OnClick function="EzModMuteHistoryEntry_OnClick"/>
+		</Scripts>
+	</Button>
+
+	<Frame name="EzModModerationPanel" parent="EzModModerationFrame" setAllPoints="true">
+		<Frames>
+			<Frame name="EzModInput" parentKey="input" inherits="EzWoWInsetFrameTemplate">
+				<Size x="350" y="80"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="4" y="-26"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentCharacter" inherits="GameFontNormal" text="EZMOD_TEXT_CHARACTER">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="8" y="-8"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="$parentMuteButton" parentKey="muteButton" inherits="UIPanelButtonTemplate" text="EZMOD_TEXT_MUTE">
+						<Size x="100" y="28"/>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="EzModInputMuteButton_OnClick"/>
+						</Scripts>
+					</Button>
+					<Frame name="$parentRuleSelect" parentKey="ruleSelect" inherits="UIDropDownMenuTemplate">
+						<Size y="26"/>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" x="-12"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad function="EzModInputRuleSelect_OnLoad"/>
+							<OnShow function="EzModInputRuleSelect_OnShow"/>
+						</Scripts>
+					</Frame>
+					<EditBox name="$parentSearch" parentKey="search">
+						<Size x="330" y="20"/>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parentMuteButton" relativePoint="TOPRIGHT" x="-4" y="6"/>
+						</Anchors>
+						<Layers>
+							<Layer level="BACKGROUND">
+								<Texture name="$parentLeft" file="Interface\Common\Common-Input-Border">
+									<Size x="8" y="22"/>
+									<Anchors>
+										<Anchor point="LEFT">
+											<Offset>
+												<AbsDimension x="-5" y="0"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<TexCoords left="0" right="0.0625" top="0" bottom="0.625"/>
+								</Texture>
+								<Texture name="$parentRight" file="Interface\Common\Common-Input-Border">
+									<Size x="8" y="22"/>
+									<Anchors>
+										<Anchor point="RIGHT">
+											<Offset>
+												<AbsDimension x="0" y="0"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<TexCoords left="0.9375" right="1.0" top="0" bottom="0.625"/>
+								</Texture>
+								<Texture name="$parentMiddle" file="Interface\Common\Common-Input-Border">
+									<Size x="10" y="22"/>
+									<Anchors>
+										<Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+										<Anchor point="RIGHT" relativeTo="$parentRight" relativePoint="LEFT"/>
+									</Anchors>
+									<TexCoords left="0.0625" right="0.9375" top="0" bottom="0.625"/>
+								</Texture>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad function="EzModInputSearch_OnLoad"/>
+							<OnEscapePressed>self:ClearFocus()</OnEscapePressed>
+							<OnEnterPressed function="EzModInputSearch_OnEnterPressed"/>
+						</Scripts>
+						<FontString inherits="ChatFontNormal" />
+					</EditBox>
+				</Frames>
+			</Frame>
+			<Frame name="EzModStatus" parentKey="preview" useParentLevel="true" inherits="EzWoWInsetFrameTemplate">
+				<Size y="80"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-4" y="-26" />
+					<Anchor point="TOPLEFT" relativeTo="EzModInput" relativePoint="TOPRIGHT" x="4"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentPreviewTitle" inherits="GameFontNormal" justifyH="LEFT" text="EZMOD_TEXT_MUTE_PREVIEW">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="8" y="-5"/>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentStatus" parentKey="preview" inherits="GameFontWhite" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentPreviewTitle" relativePoint="BOTTOMLEFT" x="0" y="-2"/>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentCurrentMuteTitle" inherits="GameFontNormal" justifyH="LEFT" text="EZMOD_TEXT_CURRENT_MUTE">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="8" y="-48"/>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentCurrentMute" parentKey="currentMute" inherits="GameFontWhite" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentCurrentMuteTitle" relativePoint="BOTTOMLEFT" x="0" y="-2"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="$parentUnmuteButton" parentKey="unmuteButton" inherits="UIPanelButtonTemplate" hidde="true" text="EZMOD_TEXT_UNMUTE">
+						<Size x="90" y="28"/>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="EzModUnmuteButton_OnClick"/>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			<Frame name="EzModChatHistory" parentKey="chatHistory" useParentLevel="true" inherits="EzWoWInsetFrameTemplate">
+				<Size y="200"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="EzModInput" relativePoint="BOTTOMLEFT" y="-8"/>
+					<Anchor point="TOPRIGHT" relativeTo="EzModStatus" relativePoint="BOTTOMRIGHT" y="-8"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentChatHistory" inherits="GameFontNormal" justifyH="LEFT" text="EZMOD_TEXT_CHAT_HISTORY">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="8" y="-8"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<ScrollingMessageFrame name="$parentContent" parentKey="content" toplevel="true" >
+						<Anchors>
+							<Anchor point="TOPLEFT" x="8" y="-24"/>
+							<Anchor point="BOTTOMRIGHT" x="-22" y="4"/>
+						</Anchors>
+						<FontString inherits="ChatFontNormal" justifyH="LEFT" indented="true" nonspacewrap="true"/>
+						<Frames>
+							<Slider name="$parentScrollBar" parentKey="scrollBar" inherits="UIPanelScrollBarTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="1" y="-18"/>
+									<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="1" y="14"/>
+								</Anchors>
+							</Slider>
+						</Frames>
+						<Scripts>
+							<OnLoad function="EzModChatHistory_OnLoad"/>
+							<OnMouseWheel function="EzModChatHistory_OnScroll"/>
+						</Scripts>
+					</ScrollingMessageFrame>
+				</Frames>
+			</Frame>
+			<Frame name="EzModMuteHistory" parentKey="muteHistory" useParentLevel="true" inherits="EzWoWInsetFrameTemplate">
+				<Size y="200"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="EzModChatHistory" relativePoint="BOTTOMLEFT" y="-8"/>
+					<Anchor point="TOPRIGHT" relativeTo="EzModChatHistory" relativePoint="BOTTOMRIGHT" y="-8"/>
+					<Anchor point="BOTTOMLEFT" y="8"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentChatHistory" inherits="GameFontNormal" justifyH="LEFT" text="EZMOD_TEXT_MUTE_HISTORY">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="8" y="-8"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<ScrollFrame name="$parentContent" parentKey="content" inherits="HybridScrollFrameTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" x="4" y="-24"/>
+							<Anchor point="BOTTOMRIGHT" x="-26" y="4"/>
+						</Anchors>
+						<Frames>
+							<Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="1" y="-18"/>
+									<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="1" y="12"/>
+								</Anchors>
+							</Slider>
+						</Frames>
+						<Scripts>
+							<OnLoad function="EzModMuteHistory_OnLoad"/>
+						</Scripts>
+					</ScrollFrame>
+				</Frames>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad function="EzModModerationPanel_OnLoad"/>
+			<OnHide function="EzModModerationPanel_OnHide"/>
+		</Scripts>
+	</Frame>
+</Ui>

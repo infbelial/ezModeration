@@ -1,0 +1,53 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+    <Script file="ModerationFrame.lua"/>
+
+	<Button name="EzModMenuTab" inherits="CharacterFrameTabButtonTemplate" virtual="true">
+		<Scripts>
+			<OnClick>
+				EzModModerationFrame_SetTab(self:GetParent(), self:GetID());
+				PlaySound("igCharacterInfoTab");
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Button name="EzModMenuTabCutoff" inherits="EzModMenuTab" virtual="true">
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+				local textures =
+				{
+					_G[self:GetName().."LeftDisabled"],
+					_G[self:GetName().."MiddleDisabled"],
+					_G[self:GetName().."RightDisabled"],
+				};
+				for i, texture in ipairs(textures) do
+					texture:SetTexture("Interface\\AddOns\\ezModeration\\Textures\\UI-Character-ActiveTabCutoff");
+				end
+			</OnLoad>
+		</Scripts>
+	</Button>
+
+    <Frame name="EzModModerationFrame" inherits="EzWoWNoPortraitFrameTemplate" parent="UIParent" enableMouse="true" hidden="true" toplevel="true" frameStrata="HIGH" movable="true" clampedToScreen="true">
+        <Size x="716" y="606"/>
+        <Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+        <Frames>
+            <Button name="$parentTab1" inherits="EzModMenuTabCutoff" text="EZMOD_TEXT_MODERATION" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="11" y="2"/>
+				</Anchors>
+			</Button>
+            <Button name="$parentTab2" inherits="EzModMenuTabCutoff" text="EZMOD_TEXT_CHAT_RULES" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT" x="-16" y="0"/>
+				</Anchors>
+			</Button>
+        </Frames>
+        <Scripts>
+            <OnLoad function="EzModModerationFrame_OnLoad"/>
+		</Scripts>
+    </Frame>
+</Ui>

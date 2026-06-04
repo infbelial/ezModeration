@@ -1,0 +1,315 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+
+	<!-- TODO: this shit is just copied (and modified) from the collections and will be in the user addon too, probably need to reuse it-->
+
+	<!-- Vertically tiling pieces -->
+	<Texture name="EzWoW-UI-Frame-RightTile" file="Interface\AddOns\ezModeration\Textures\!UI-Frame" virtual="true" vertTile="true" >
+		<Size x="10" y="256"/>
+		<TexCoords left="0.17187500" right="0.32812500" />
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-LeftTile" file="Interface\AddOns\ezModeration\Textures\!UI-Frame" virtual="true" vertTile="true" >
+		<Size x="16" y="256"/>
+		<TexCoords left="0.35937500" right="0.60937500" />
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerRightTile" file="Interface\AddOns\ezModeration\Textures\!UI-Frame" virtual="true" vertTile="true" >
+		<Size x="3" y="256"/>
+		<TexCoords left="0.01562500" right="0.06250000" />
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerLeftTile" file="Interface\AddOns\ezModeration\Textures\!UI-Frame" virtual="true" vertTile="true" >
+		<Size x="3" y="256"/>
+		<TexCoords left="0.09375000" right="0.14062500" />
+	</Texture>
+
+	<!-- Horizontally tiling pieces -->
+	<Texture name="EzWoW-UI-Frame-BtnBotTile" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="3"/>
+		<TexCoords top="0.04687500" bottom="0.07031250"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-Bot" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="9"/>
+		<TexCoords top="0.20312500" bottom="0.27343750"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerTopTile" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="3"/>
+		<TexCoords top="0.08593750" bottom="0.10937500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerBotTile" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="3"/>
+		<TexCoords top="0.00781250" bottom="0.03125000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TitleTileBg" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="17"/>
+		<TexCoords top="0.28906250" bottom="0.42187500"/>
+	</Texture>
+
+	<Texture name="EzWoW-UI-Frame-TittleTile-HiRes" atlas="EzWoW-UI-Frame-TittleTile-HiRes" virtual="true" horizTile="true" useAtlasSize="true"/>
+
+	<Texture name="EzWoW-UI-Frame-TitleTile" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="28"/>
+		<TexCoords top="0.43750000" bottom="0.65625000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TopTileStreaks" file="Interface\AddOns\ezModeration\Textures\_UI-Frame" virtual="true" horizTile="true" >
+		<Size x="256" y="37"/>
+		<TexCoords top="0.67187500" bottom="0.96093750"/>
+	</Texture>
+
+<!--
+*******************************************************************************
+	Texture templates for frame border pieces
+*******************************************************************************
+-->
+	<Texture name="EzWoW-UI-Frame-Portrait" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="78" y="78"/>
+		<TexCoords left="0.00781250" right="0.61718750" top="0.00781250" bottom="0.61718750"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TopCornerRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="33" y="33"/>
+		<TexCoords left="0.63281250" right="0.89062500" top="0.00781250" bottom="0.26562500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BtnDivRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="11" y="25"/>
+		<TexCoords left="0.90625000" right="0.99218750" top="0.00781250" bottom="0.20312500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerTopRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="6" y="6"/>
+		<TexCoords left="0.90625000" right="0.95312500" top="0.21875000" bottom="0.26562500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TopLeftCorner" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="32" y="32"/> <!--was 33 but it looked scuffed, top right is 33 because of button?-->
+		<TexCoords left="0.63281250" right="0.88281250" top="0.28125000" bottom="0.53125000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerTopLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="6" y="6"/>
+		<TexCoords left="0.63281250" right="0.67968750" top="0.54687500" bottom="0.59375000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerBotLeftCorner" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="6" y="6"/>
+		<TexCoords left="0.69531250" right="0.74218750" top="0.54687500" bottom="0.59375000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerBotRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="6" y="6"/>
+		<TexCoords left="0.75781250" right="0.80468750" top="0.54687500" bottom="0.59375000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BtnCornerLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="12" y="32"/>
+		<TexCoords left="0.89843750" right="0.99218750" top="0.28125000" bottom="0.53125000"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BotCornerLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="14" y="14"/>
+		<TexCoords left="0.00781250" right="0.11718750" top="0.63281250" bottom="0.74218750"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TopCornerLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="14" y="14"/>
+		<TexCoords left="0.00781250" right="0.11718750" top="0.74218750" bottom="0.63281250"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BtnDivMiddle" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="13" y="25"/>
+		<TexCoords left="0.00781250" right="0.10937500" top="0.75781250" bottom="0.95312500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BtnCornerRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="12" y="32"/>
+		<TexCoords left="0.13281250" right="0.22656250" top="0.63281250" bottom="0.88281250"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BotCornerRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="11" y="11"/>
+		<TexCoords left="0.13281250" right="0.21875000" top="0.89843750" bottom="0.98437500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-TopCornerRightSimple" file="Interface\AddOns\EzezModerationWoW\Textures\UI-Frame" virtual="true">
+		<Size x="11" y="11"/>
+		<TexCoords left="0.13281250" right="0.21875000" top="0.98437500" bottom="0.89843750"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-BtnDivLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="11" y="25"/>
+		<TexCoords left="0.24218750" right="0.32812500" top="0.63281250" bottom="0.82812500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerSplitLeft" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="9" y="14"/>
+		<TexCoords left="0.24218750" right="0.31250000" top="0.84375000" bottom="0.95312500"/>
+	</Texture>
+	<Texture name="EzWoW-UI-Frame-InnerSplitRight" file="Interface\AddOns\ezModeration\Textures\UI-Frame" virtual="true">
+		<Size x="9" y="14"/>
+		<TexCoords left="0.34375000" right="0.41406250" top="0.63281250" bottom="0.74218750"/>
+	</Texture>
+
+<!--
+*******************************************************************************
+	PortraitFrameTemplate
+	This is an empty frame with space for a portrait/icon in the top left corner.
+*******************************************************************************
+-->
+	<Frame name="EzWoWNoPortraitFrameTemplateNoCloseButton" virtual="true">
+		<Size x="338" y="424"/>
+		<Layers>
+			<Layer level="BACKGROUND" textureSubLevel="-6">
+				<Texture name="$parentBg" file="Interface\AddOns\ezModeration\Textures\UI-Background-Rock" horizTile="true" vertTile="true" parentKey="Bg">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="2" y="-21"/>
+						<Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTitleBg" parentKey="TitleBg" inherits="EzWoW-UI-Frame-TitleTileBg">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="2" y="-3"/>
+						<Anchor point="TOPRIGHT" x="-25" y="-3"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK" textureSubLevel="-1">
+				<Texture name="$parentPortrait" parentKey="portrait">
+					<Size x="61" y="61"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-6" y="8" />
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentTopRightCorner" parentKey="TopRightCorner" inherits="EzWow-UI-Frame-TopCornerRight">
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="0" y="1"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTopLeftCorner" parentKey="TopLeftCorner" inherits="EzWow-UI-Frame-TopLeftCorner">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-6" y="1"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentTopBorder" parentKey="TopBorder" inherits="EzWow-UI-Frame-TitleTile">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTopLeftCorner" relativePoint="TOPRIGHT" x="0" y="0" />
+						<Anchor point="TOPRIGHT" relativeTo="$parentTopRightCorner" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentTitleText" inherits="GameFontNormal" text="" parentKey="TitleText" wordwrap="false">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="-5"/>
+						<Anchor point="LEFT" x="60"/>
+						<Anchor point="RIGHT" x="-60"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="$parentTopTileStreaks" parentKey="TopTileStreaks" inherits="EzWow-UI-Frame-TopTileStreaks">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="-21"/>
+						<Anchor point="TOPRIGHT" x="-2" y="-21"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBotLeftCorner" parentKey="BotLeftCorner" inherits="EzWow-UI-Frame-BotCornerLeft">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="-6" y="-5"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBotRightCorner" parentKey="BotRightCorner" inherits="EzWow-UI-Frame-BotCornerRight">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" x="0" y="-5"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBottomBorder" parentKey="BottomBorder" inherits="EzWow-UI-Frame-Bot">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentBotLeftCorner" relativePoint="BOTTOMRIGHT" y="0"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="BOTTOMLEFT" y="0"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentLeftBorder" parentKey="LeftBorder" inherits="EzWow-UI-Frame-LeftTile">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTopLeftCorner" relativePoint="BOTTOMLEFT" x="0" y="0" />
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentBotLeftCorner" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRightBorder" parentKey="RightBorder" inherits="EzWow-UI-Frame-RightTile">
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeTo="$parentTopRightCorner" relativePoint="BOTTOMRIGHT" x="1"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="TOPRIGHT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+	<Frame name="EzWoWNoPortraitFrameTemplate" inherits="EzWoWNoPortraitFrameTemplateNoCloseButton" virtual="true">
+		<Frames>
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton" parentKey="CloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
+						<Offset x="4" y="5"/>
+					</Anchor>
+				</Anchors>
+				<!--Scripts>
+					<OnClick function="PortraitFrameCloseButton_OnClick" />
+				</Scripts-->
+			</Button>
+		</Frames>
+	</Frame>
+
+<!--
+*******************************************************************************
+	InsetFrameTemplate
+
+	This is the inner frame used by ButtonFrameTemplate
+*******************************************************************************
+-->
+	<Frame name="EzWoWInsetFrameTemplate" virtual="true">
+		<Size x="64" y="64"/>
+		<Layers>
+			<Layer level="BACKGROUND" textureSubLevel="-5">
+				<Texture name="$parentBg" file="Interface\AddOns\ezModeration\Textures\UI-Background-Marble" horizTile="true" vertTile="true" parentKey="Bg">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER" textureSubLevel="-5">
+				<Texture name="$parentInsetTopLeftCorner" inherits="EzWoW-UI-Frame-InnerTopLeft" parentKey="InsetBorderTopLeft">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentBg"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentInsetTopRightCorner" inherits="EzWoW-UI-Frame-InnerTopRight" parentKey="InsetBorderTopRight">
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeTo="$parentBg"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentInsetBotLeftCorner" inherits="EzWoW-UI-Frame-InnerBotLeftCorner" parentKey="InsetBorderBottomLeft">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentBg" y="-1"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentInsetBotRightCorner" inherits="EzWoW-UI-Frame-InnerBotRight" parentKey="InsetBorderBottomRight">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentBg" y="-1"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentInsetTopBorder" inherits="EzWoW-UI-Frame-InnerTopTile" parentKey="InsetBorderTop">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentInsetTopLeftCorner" relativePoint="TOPRIGHT"/>
+						<Anchor point="TOPRIGHT" relativeTo="$parentInsetTopRightCorner" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentInsetBottomBorder" inherits="EzWoW-UI-Frame-InnerBotTile" parentKey="InsetBorderBottom">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentInsetBotLeftCorner" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentInsetBotRightCorner" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentInsetLeftBorder" inherits="EzWoW-UI-Frame-InnerLeftTile" parentKey="InsetBorderLeft">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentInsetTopLeftCorner" relativePoint="BOTTOMLEFT" x="0" y="0" />
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentInsetBotLeftCorner" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentInsetRightBorder" inherits="EzWoW-UI-Frame-InnerRightTile" parentKey="InsetBorderRight">
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeTo="$parentInsetTopRightCorner" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentInsetBotRightCorner" relativePoint="TOPRIGHT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+</Ui>
