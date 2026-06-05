@@ -15,7 +15,7 @@ function EzModChatRulesPanel_Update()
         if ruleFrame == nil then
             ruleFrame = CreateFrame("Frame", "EzModChatRule"..tostring(i), content, "EzModChatRuleTemplate")
             if previous then
-                ruleFrame:SetPoint("TOPLEFT", previous, "BOTTOMLEFT", 0, -5)        
+                ruleFrame:SetPoint("TOPLEFT", previous, "BOTTOMLEFT", 0, -4)        
             else
                 ruleFrame:SetPoint("TOPLEFT", content, "TOPLEFT", 4, -4)
             end
@@ -34,11 +34,11 @@ function EzModChatRulesPanel_Update()
 
         ruleFrame.name:SetText(header)
         ruleFrame.details:SetText(details)
-        ruleFrame.details:SetWidth(660)
+        ruleFrame.details:SetWidth(662)
         ruleFrame.baseTime:SetText(string.format("%s: |cFFFFD100%d минут|r", EZMOD_TEXT_BASIC_MUTE_TIME, entry.penaltyTime))
         ruleFrame.warning:SetText(string.format("%s: |cFFFFD100%s|r", EZMOD_TEXT_WARNING, warning))
         
-        local height = ruleFrame.name:GetHeight() + ruleFrame.details:GetHeight() + ruleFrame.baseTime:GetHeight() + ruleFrame.warning:GetHeight() + 5 * 5
+        local height = ruleFrame.name:GetHeight() + ruleFrame.details:GetHeight() + ruleFrame.baseTime:GetHeight() + ruleFrame.warning:GetHeight() + 8 * 5
         ruleFrame:SetHeight(height)
 
         previous = ruleFrame

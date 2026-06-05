@@ -4,27 +4,27 @@
     <Script file="ChatRulesPanel.lua"/>
 
     <Frame name="EzModChatRuleTemplate" virtual="true">
-        <Size x="676" y="50"/>
+        <Size x="678" y="50"/>
         <Layers>
             <Layer level="OVERLAY">
                 <FontString name="$parentName" parentKey="name" inherits="GameFontNormal" justifyH="LEFT">
                     <Anchors>
-                        <Anchor point="TOPLEFT" x="5" y="-5"/>
+                        <Anchor point="TOPLEFT" x="8" y="-8"/>
                     </Anchors>
                 </FontString>
                 <FontString name="$parentDetails" parentKey="details" inherits="GameFontHighlight" justifyH="LEFT">
                     <Anchors>
-                        <Anchor point="TOPLEFT" relativeTo="$parentName" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                        <Anchor point="TOPLEFT" relativeTo="$parentName" relativePoint="BOTTOMLEFT" x="0" y="-8"/>
                     </Anchors>
                 </FontString>
                 <FontString name="$parentBaseTime" parentKey="baseTime" inherits="GameFontHighlight" justifyH="LEFT">
                     <Anchors>
-                        <Anchor point="TOPLEFT" relativeTo="$parentDetails" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                        <Anchor point="TOPLEFT" relativeTo="$parentDetails" relativePoint="BOTTOMLEFT" x="0" y="-8"/>
                     </Anchors>
                 </FontString>
                 <FontString name="$parentWarning" parentKey="warning" inherits="GameFontHighlight" justifyH="LEFT">
                     <Anchors>
-                        <Anchor point="TOPLEFT" relativeTo="$parentBaseTime" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                        <Anchor point="TOPLEFT" relativeTo="$parentBaseTime" relativePoint="BOTTOMLEFT" x="0" y="-8"/>
                     </Anchors>
                 </FontString>
             </Layer>
@@ -38,9 +38,9 @@
 
     <Frame name="EzModChatRulesPanel" parent="EzModModerationFrame" setAllPoints="true">
         <Frames>
-            <Frame name="$parentInset" useParentLevel="true" inherits="EzWoWInsetFrameTemplate">
+            <Frame name="$parentInset" useParentLevel="true" >
                 <Anchors>
-                    <Anchor point="TOPLEFT" x="4" y="-26"/>
+                    <Anchor point="TOPLEFT" x="0" y="-26"/>
                     <Anchor point="BOTTOMRIGHT" x="-4" y="8"/>
                 </Anchors>
                 <Frames>
