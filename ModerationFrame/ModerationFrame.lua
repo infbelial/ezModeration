@@ -17,3 +17,8 @@ function EzModModerationFrame_OnLoad(self)
     table.insert(UISpecialFrames, self:GetName())
 end
 
+
+function EzModModerationFrame_OnHide(self)
+    EzModInputSearch:SetText("")
+    ezMod:ResetPlayerData()
+end

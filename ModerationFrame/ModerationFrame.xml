@@ -48,6 +48,7 @@
         </Frames>
         <Scripts>
             <OnLoad function="EzModModerationFrame_OnLoad"/>
+			<OnHide function="EzModModerationFrame_OnHide"/>
 		</Scripts>
     </Frame>
 </Ui>

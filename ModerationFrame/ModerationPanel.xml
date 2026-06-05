@@ -236,7 +236,7 @@
 					</Layer>
 				</Layers>
 				<Frames>
-					<Button name="$parentUnmuteButton" parentKey="unmuteButton" inherits="UIPanelButtonTemplate" hidde="true" text="EZMOD_TEXT_UNMUTE">
+					<Button name="$parentUnmuteButton" parentKey="unmuteButton" inherits="UIPanelButtonTemplate" hidden="true" text="EZMOD_TEXT_UNMUTE">
 						<Size x="90" y="28"/>
 						<Anchors>
 							<Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
@@ -323,7 +323,6 @@
 		</Frames>
 		<Scripts>
 			<OnLoad function="EzModModerationPanel_OnLoad"/>
-			<OnHide function="EzModModerationPanel_OnHide"/>
 		</Scripts>
 	</Frame>
 </Ui>

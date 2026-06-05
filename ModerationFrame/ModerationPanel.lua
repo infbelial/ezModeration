@@ -20,12 +20,6 @@ function EzModModerationPanel_OnLoad(self)
 end
 
 
-function EzModModerationPanel_OnHide(self)
-    self.input.search:SetText("")
-    ezMod:ResetPlayerData()
-end
-
-
 function EzModModerationPanel_LoadingStart()
     EzModStatus.preview:SetText(EZMOD_TEXT_LOADING)
     EzModStatus.currentMute:SetText(EZMOD_TEXT_LOADING)
